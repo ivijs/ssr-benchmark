@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const BabiliPlugin = require("babili-webpack-plugin");
 
 module.exports = {
   target: "node",
@@ -25,18 +26,17 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      "__IVI_DEV__": false,
-      "__IVI_BROWSER__": false,
-    }),
     new webpack.optimize.ModuleConcatenationPlugin(),
+    new BabiliPlugin(),
   ],
   resolve: {
     alias: {
       "ivi-html": "ivi-ssr-html",
+      "ivi-svg": "ivi-ssr-svg",
       "ivi-events": "ivi-ssr",
       "ivi-scheduler": "ivi-ssr",
       "ivi": "ivi-ssr",
+      "ivi-vars": path.join(__dirname, "node_modules", "ivi-vars", "node"),
     },
     mainFields: ["serverModule", "es2015", "module", "main"],
     extensions: [".ts", ".js"],

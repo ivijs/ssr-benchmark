@@ -60,7 +60,7 @@ export const raxApp = componentFactory(App);
 
 function BannerItem(img: string) {
   return h.div().style(BannerStyles.item)
-    .children(h.img().style(BannerStyles.itemImg).props({ src: img }));
+    .children(h.img().style(BannerStyles.itemImg).attrs({ src: img }));
 }
 export const bannerItem = componentFactory(BannerItem);
 
@@ -82,7 +82,7 @@ const banner = connect(
 );
 
 function ListItem(item: { href: string, img: string, title: string, price: number }) {
-  return h.a().style(ListStyles.item).props({ href: item.href }).children(
+  return h.a().style(ListStyles.item).attrs({ href: item.href }).children(
     h.img().style(ListStyles.itemImg),
     h.p().style(ListStyles.itemTitle).children(item.title),
     h.p().style(ListStyles.itemPrice).children(

@@ -16,7 +16,8 @@
     ],
     "types": [
       "benchmark",
-      "node"
+      "node",
+      "express"
     ],
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

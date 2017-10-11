@@ -13,7 +13,7 @@ export const vidomApp = componentFactory(App);
 class Header extends Component<number> {
   render() {
     return h.div("header").children(mapRange(0, this.props, (i) => (
-      h.div().props({ id: "header-" + i++ }).key(i)
+      h.div().attrs({ id: "header-" + i++ }).key(i)
     )));
   }
 }
@@ -41,7 +41,7 @@ class Link extends Component<{ href: string, value: string }> {
   render() {
     const props = this.props;
     return h.a()
-      .props({ href: props.href })
+      .attrs({ href: props.href })
       .children(props.value);
   }
 }
@@ -50,7 +50,7 @@ const link = componentFactory(Link);
 class Footer extends Component<number> {
   render() {
     return h.div("footer").children(mapRange(0, this.props, (i) => (
-      h.div().props({ id: "footer-" + i++ }).key(i)),
+      h.div().attrs({ id: "footer-" + i++ }).key(i)),
     ));
   }
 }
